@@ -20,7 +20,9 @@ const reducer =
         return ('path' in action)
           ? state
               .updateIn(action.path,
-                props => (props || Immutable.Map()).concat(action.props || {})
+                props => (props || Immutable.Map())
+                  .set(action.type, Date.now())
+                  .concat(action.props || {})
               )
               .set('path', action.path)
               .set('type', action.type)
