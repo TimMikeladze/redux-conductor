@@ -25,6 +25,7 @@ const reducer =
               .set('path', action.path)
               .set('type', action.type)
           : state
+              .delete('path')
               .set('type', action.type);
     }
   };
