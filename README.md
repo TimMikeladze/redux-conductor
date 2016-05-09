@@ -21,6 +21,11 @@ Automatically conduct event traffic through Redux by using special thunks called
 
 #### `Conductor.toDispatch()`
 - Equivalent to `Conductor.to(this._store.dispatch)`. Routes to the `dispatch` method of the conductor's Redux store.
+- **Returns** `this`.
+
+#### `Conductor.start()`
+- Dispatches an action of type `START` to the conductor's Redux store.
+- **Returns** `this`.
 
 ### `createRoute(options)`
 - `options.action` - An action-like object with optional `type` and `path` properties. If and only if the store's last action matches these properties, then the route will execute.

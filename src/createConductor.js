@@ -23,6 +23,15 @@ class Conductor {
   }
 
   /**
+   * Dispatch a START action to the store.
+   * @returns {Conductor}
+   */
+  start() {
+    this._store.dispatch({ type: 'START' });
+    return this;
+  }
+
+  /**
    * When the last defined route function is called, pass the given function as the "yield" function.
    * @param {function} destination - A "yield" function to be passed into a route.
    * @return {Conductor}
