@@ -9,25 +9,23 @@ import Immutable from 'immutable';
 const reducer =
   (state = Immutable.Map(), action) => {
     switch (action.type) {
-      case 'REMOVE': {
+
+      case 'REMOVE':
         return state
           .deleteIn(action.path)
-          .set('type', action.type)
-          .set('path', action.path);
-      }
+          .set('path', action.path)
+          .set('type', action.type);
 
-      default: {
-        if ('path' in action) {
-          return state
-            .updateIn(action.path, data => (data || Immutable.Map()).concat(action.props || {}))
-            .set('type', action.type)
-            .set('path', action.path);
-        }
-        else {
-          return state
-            .set('type', action.type);
-        }
-      }
+      default:
+        return ('path' in action)
+          ? state
+              .updateIn(action.path,
+                props => (props || Immutable.Map()).concat(action.props || {})
+              )
+              .set('path', action.path)
+              .set('type', action.type)
+          : state
+              .set('type', action.type);
     }
   };
 export default reducer;

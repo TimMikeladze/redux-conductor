@@ -19,6 +19,9 @@ Automatically conduct event traffic through Redux by using special thunks called
 - Defines the yield function passed to a `route`, which is defined by the previous call to `Conductor.route`.
 - **Returns** `this`.
 
+#### `Conductor.toDispatch()`
+- Equivalent to `Conductor.to(this._store.dispatch)`. Routes to the `dispatch` method of the conductor's Redux store.
+
 ### `createRoute(options)`
 - `options.action` - An action-like object with optional `type` and `path` properties. If and only if the store's last action matches these properties, then the route will execute.
 - `options.route` - A function of a "yield" function and the current state.

@@ -27,9 +27,17 @@ class Conductor {
    * @param {function} destination - A "yield" function to be passed into a route.
    * @return {Conductor}
    */
-  to(destination = this._store.dispatch) {
+  to(destination) {
     this._event.to(destination);
     return this;
+  }
+
+  /**
+   * Equivalent to this.to(this._store.dispatch)
+   * @returns {Conductor}
+   */
+  toDispatch() {
+    return this.to(this._store.dispatch);
   }
 }
 
