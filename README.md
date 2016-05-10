@@ -1,7 +1,7 @@
 # Redux Conductor
 `npm install --save redux-conductor`
 
-Automatically conduct event traffic through Redux by using special "thunks" called **routes**.
+Automatically conduct event traffic through Redux by reacting to actions.
 
 ### Quick overview
 
@@ -70,3 +70,9 @@ action matches these properties, then the route will execute when state changes.
 ### `combineRoutes(routes)`
 - `routes` - An array or other iterable object (i.e. it must have a `forEach` property) of routes.
 - **Returns** a single route that yields the results of each route in `routes`.
+
+### Future features?
+
+- Add another specialized action type called `ADD` that sets a path for the first time. And then guard against applying
+actions of any other type, if their paths have not been `ADD`-ed yet.
+- Support for combining the default reducer with other reducers.
