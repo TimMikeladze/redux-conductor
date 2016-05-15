@@ -55,8 +55,7 @@ class Conductor {
  * @param {function(Function)} [mapReducerToStore] - Optional function that returns a store based on a reducer.
  * @return {Conductor}
  */
-const createConductor =
-  (mapReducerToStore = createStore) => {
-    return new Conductor(mapReducerToStore);
-  };
+const createConductor = (mapReducerToStore = createStore) => {
+  return new Conductor(mapReducerToStore);
+};
 export default createConductor;

@@ -1,6 +1,6 @@
 {
   "name": "redux-conductor",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Redux Conductor: Automatically conduct event traffic through Redux by reacting to actions",
   "author": "Alex Yuly",
   "license": "MIT",

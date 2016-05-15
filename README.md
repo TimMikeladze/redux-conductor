@@ -71,8 +71,13 @@ action matches these properties, then the route will execute when state changes.
 - `routes` - An array or other iterable object (i.e. it must have a `forEach` property) of routes.
 - **Returns** a single route that yields the results of each route in `routes`.
 
+### `logger`
+- A route that yields a single-line log of the last action, with a relative millisecond timestamp.
+
+### `onRequest`
+- A route that yields a `RESOLVE` or `REJECT` action after executing a Promise passed through the `promise` property of
+a `REQUEST` action.
+
 ### Future features?
 
-- Add another specialized action type called `ADD` that sets a path for the first time. And then guard against applying
-actions of any other type, if their paths have not been `ADD`-ed yet.
 - Support for combining the default reducer with other reducers.

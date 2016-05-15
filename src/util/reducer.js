@@ -6,29 +6,28 @@ import Immutable from 'immutable';
  * @param {{type: string, path: Array|undefined, props: Object|undefined}} action
  * @returns {Immutable.Map}
  */
-const reducer =
-  (state = Immutable.Map(), action) => {
-    switch (action.type) {
+const reducer = (state = Immutable.Map(), action) => {
+  switch (action.type) {
 
-      case 'REMOVE':
-        return state
-          .deleteIn(action.path)
-          .set('path', action.path)
-          .set('type', action.type);
+    case 'REMOVE':
+      return state
+        .deleteIn(action.path)
+        .set('path', action.path)
+        .set('type', action.type);
 
-      default:
-        return ('path' in action)
-          ? state
-              .updateIn(action.path,
-                props => (props || Immutable.Map())
-                  .set(action.type, Date.now())
-                  .concat(action.props || {})
-              )
-              .set('path', action.path)
-              .set('type', action.type)
-          : state
-              .delete('path')
-              .set('type', action.type);
-    }
-  };
+    default:
+      return ('path' in action)
+        ? state
+            .updateIn(action.path,
+              props => (props || Immutable.Map())
+                .set(action.type, Date.now())
+                .concat(action.props || {})
+            )
+            .set('path', action.path)
+            .set('type', action.type)
+        : state
+            .delete('path')
+            .set('type', action.type);
+  }
+};
 export default reducer;
