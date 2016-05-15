@@ -8,11 +8,12 @@ const onRequest = createRoute({
   action: {
     type: 'REQUEST'
   },
-  route: (push, state) =>
-    state.getIn(path.concat('promise').then(
-      props => push({ type: 'RESOLVE', path: state.get('path'), props }),
-      props => push({ type: 'REJECT', path: state.get('path'), props })
-    )
-  )
+  route: (push, state) => {
+    const path = state.get('path');
+    state.getIn(path.concat('promise')).then(
+      props => push({ type: 'RESOLVE', path, props }),
+      props => push({ type: 'REJECT', path, props })
+    );
+  }
 });
 export default onRequest;
