@@ -1,6 +1,6 @@
 {
   "name": "redux-conductor",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Redux Conductor: Automatically conduct event traffic through Redux by reacting to actions",
   "author": "Alex Yuly",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "url": "https://github.com/alexyuly/redux-conductor.git"
   },
   "scripts": {
-    "build": "babel src -d lib --presets es2015",
+    "build": "babel src -d lib",
     "prepublish": "npm run build"
   },
   "dependencies": {
