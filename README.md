@@ -75,6 +75,10 @@ a last action with the same path or any descendant path.
 ### `logger`
 - A route that yields a single-line log of the last action, with a relative millisecond timestamp.
 
+### `nextKey(map)`
+- `map` - An Immutable `Map`. Defaults to a new empty `Map`.
+- Return the maximum key in the given Map (or zero), plus one.
+
 ### `onRequest`
 - A route that yields a `RESOLVE` or `REJECT` action after executing a Promise passed through the `promise` property of
 a `REQUEST` action.
