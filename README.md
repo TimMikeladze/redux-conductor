@@ -62,7 +62,8 @@ of the action. If `action.path` is not present, then the reducer deletes `path` 
 
 ### `createRoute(options)`
 - `options.action` - An action-like object with optional `type` and `path` properties. If and only if the store's last
-action matches these properties, then the route will execute when state changes.
+action matches these properties, then the route will execute when state changes. `path` will successfully match against
+a last action with the same path or any descendant path.
 - `options.route` - A function of a "yield" function and the current state.
 - This function is syntactic sugar for creating a route with a guard condition based on the "last action".
 - **Returns** a `function(Function, Immutable.Map)`.
